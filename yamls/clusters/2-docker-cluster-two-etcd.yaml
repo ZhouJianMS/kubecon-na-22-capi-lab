@@ -11,15 +11,15 @@ spec:
       cidrBlocks: ["192.168.0.0/16"]
     serviceDomain: "cluster.local"
   topology:
-    class: quick-start
+    class: quick-witness
     version: v1.24.6
     controlPlane:
       replicas: 2
     variables:
       - name: imageRepository
-        value: "etcdacr.azurecr.io"
+        value: ""
       - name: etcdImageTag
-        value: "3.5.10-0-linux-amd64"
+        value: ""
       - name: coreDNSImageTag
         value: ""
       - name: podSecurityStandard
