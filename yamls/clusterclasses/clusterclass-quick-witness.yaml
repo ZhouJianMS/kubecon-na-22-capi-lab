@@ -335,6 +335,7 @@ spec:
             echo "etcd member list: $ETCD_MEMBER_LIST" >> /mnt/share/result.log
             if [ $ETCD_MEMBER_COUNT -lt 2 ]; then echo "Not enough etcd running" ; fi  >> /mnt/share/result.log
             if echo $ETCD_MEMBER_LIST | grep -q "witness"; then echo "witness in the cluster" ; fi  >> /mnt/share/result.log
+            mkdir -p /mnt/share/witness
             if [ $ETCD_MEMBER_COUNT -ge 2 ] && echo $ETCD_MEMBER_LIST | grep -qv "witness"; then kubectl --kubeconfig /etc/kubernetes/admin.conf exec -n kube-system $ETCD_POD -- etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key member add witness --peer-urls=witness:mount?path=%2Fmnt%2Fshare%2Fwitness; kubectl --kubeconfig /etc/kubernetes/admin.conf exec -n kube-system $ETCD_POD -- etcdutl witness init --name witness --initial-advertise-peer-url witness:mount?path=%2Fmnt%2Fshare%2Fwitness; fi >> /mnt/share/result.log 2>&1
           - echo "Completed configuration" >> /mnt/share/result.log
         clusterConfiguration:
