@@ -112,7 +112,7 @@ spec:
           controlPlane: true
       jsonPatches:
       - op: add
-        path: "/spec/template/spec/kubeadmConfigSpec/clusterConfiguration/dns/imageRepository"
+        path: "/spec/template/spec/kubeadmConfigSpec/clusterConfiguration/imageRepository"
         valueFrom:
           variable: imageRepository
   # We have to pin the cgroupDriver to cgroupfs for Kubernetes < v1.24 because kind does not support systemd for those versions, but kubeadm >= 1.21 defaults to systemd.

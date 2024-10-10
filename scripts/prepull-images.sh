@@ -26,8 +26,8 @@ docker pull docker.io/calico/node:v3.24.1
 docker pull registry.k8s.io/pause:3.8
 docker pull k8s.gcr.io/kube-proxy:v1.24.6
 
-# Cluster API visualizer
-docker pull gcr.io/kakaraparthy-devel/cluster-api-visualizer:v1.0.0
+# # Cluster API visualizer
+# docker pull gcr.io/kakaraparthy-devel/cluster-api-visualizer:v1.0.0
 
-# Test Extension
-docker pull gcr.io/kakaraparthy-devel/test-extension:v1.0.1
+# # Test Extension
+# docker pull gcr.io/kakaraparthy-devel/test-extension:v1.0.1
